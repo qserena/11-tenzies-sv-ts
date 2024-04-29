@@ -1,4 +1,8 @@
-export default function Die(props) {
+export default function Die(props: {
+    value: number
+    isHeld: boolean
+    handleClick: React.MouseEventHandler<HTMLDivElement>
+}) {
     const styles = {
         backgroundColor: props.isHeld ? '#59E391' : '#FFFFFF',
     }

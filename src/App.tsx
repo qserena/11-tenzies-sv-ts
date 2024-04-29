@@ -28,7 +28,7 @@ function App() {
         return diceArray
     }
 
-    function handleClick(_e: React.MouseEvent<HTMLButtonElement>) {
+    function handleClick(_e: React.MouseEvent<HTMLButtonElement>): void {
         if (tenzies) {
             setTenzies(false)
             setDice(allNewDice)
