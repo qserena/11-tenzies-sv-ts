@@ -28,7 +28,7 @@ function App() {
         return diceArray
     }
 
-    function handleClick(e) {
+    function handleClick(_e: React.MouseEvent<HTMLButtonElement>) {
         if (tenzies) {
             setTenzies(false)
             setDice(allNewDice)
@@ -44,7 +44,7 @@ function App() {
         }
     }
 
-    function holdDice(id) {
+    function holdDice(id: string) {
         setDice((prevDice) =>
             prevDice.map((die) => ({
                 ...die,
