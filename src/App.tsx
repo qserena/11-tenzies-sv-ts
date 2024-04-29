@@ -1,38 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react'
+import Die from './Die'
+import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 function App() {
-    const [count, setCount] = useState(0)
+    const [dice, setDice] = useState(allNewDice())
+    const [tenzies, setTenzies] = useState(false)
+
+    useEffect(() => {
+        const firstValue = dice[0].value
+        const allSameValues = dice.every((die) => die.value === firstValue)
+        const allHeld = dice.every((die) => die.isHeld)
+        if (allSameValues && allHeld) {
+            setTenzies(true)
+        }
+    }, [dice])
+
+    function allNewDice() {
+        const diceArray = []
+        for (let i = 0; i < 10; i++) {
+            diceArray[i] = {
+                value: Math.ceil(6 * Math.random()),
+                isHeld: false,
+                id: nanoid(),
+            }
+        }
+        return diceArray
+    }
+
+    function handleClick(e) {
+        if (tenzies) {
+            setTenzies(false)
+            setDice(allNewDice)
+        } else {
+            setDice((prevDice) =>
+                prevDice.map((die) => ({
+                    ...die,
+                    value: die.isHeld
+                        ? die.value
+                        : Math.ceil(6 * Math.random()),
+                }))
+            )
+        }
+    }
+
+    function holdDice(id) {
+        setDice((prevDice) =>
+            prevDice.map((die) => ({
+                ...die,
+                isHeld: die.id === id ? !die.isHeld : die.isHeld,
+            }))
+        )
+    }
+
+    const diceElements = dice.map((die) => (
+        <Die
+            key={die.id}
+            value={die.value}
+            isHeld={die.isHeld}
+            handleClick={() => holdDice(die.id)}
+        />
+    ))
 
     return (
-        <>
-            <div>
-                <a href="https://vitejs.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img
-                        src={reactLogo}
-                        className="logo react"
-                        alt="React logo"
-                    />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
+        <main>
+            {tenzies && <Confetti />}
+            <h1 className="title">Tio Samma</h1>
+            <p className="instructions">
+                Slå tills alla tärningar visar samma. Klicka på varje tärning
+                för att frysa aktuellt värde mellan slagen.
             </p>
-        </>
+            <div className="dice-container">{diceElements}</div>
+            <button className="roll-btn" id="roll-btn" onClick={handleClick}>
+                {tenzies ? 'Spela igen' : 'Slå'}
+            </button>
+        </main>
     )
 }
 
