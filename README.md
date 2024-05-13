@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Tenzies - a game with dice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Click the **Roll** button to get new numbers. Click the numbers you want to keep.
 
-Currently, two official plugins are available:
+Roll until you get all dice the same!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+When you accomplish this a great firework will appear on your screen!
 
-## Expanding the ESLint configuration
+<br/>
+<img src="./tenzies-sv-big.png" alt="Screenshot of Tenzies game." width="400px"/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies
+- HTML
+- CSS
+- JavaScript
+- TypeScript
+- React
 
-- Configure the top-level `parserOptions` property like this:
+## Live link
+Tenzies is deployed here:
+[https://tenzies-sv-ts.netlify.app](https://tenzies-sv-ts.netlify.app)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Please feel free to visit and try the game!
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## What I learned
+### Conditional styling
+
+### Conditional rendering
+
+### Keep track of certain condition
