@@ -13,7 +13,6 @@ When you accomplish this a great firework will appear on your screen!
 ## Technologies
 - HTML
 - CSS
-- JavaScript
 - TypeScript
 - React
 
