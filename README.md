@@ -10,6 +10,13 @@ When you accomplish this a great firework will appear on your screen!
 <br/>
 <img src="./tenzies-sv-big.png" alt="Screenshot of Tenzies game." width="400px"/>
 
+<br/>
+<br/>
+<br/>
+NOTE! The same project, but WITHOUT TypeScript is found <a href="https://github.com/qserena/11-tenzies-sv/">Here!</a> 
+<br/>
+<br/>
+
 ## Technologies
 - HTML
 - CSS
